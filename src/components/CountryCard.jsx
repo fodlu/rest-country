@@ -1,6 +1,6 @@
 const CountryCard = () => {
 	return (
-		<div className='border rounded-lg shadow-sm shadow-gray-950 overflow-hidden'>
+		<div className='border cursor-pointer rounded-lg shadow-sm shadow-gray-950 overflow-hidden'>
 			<div className='h-40 border bg-blue-900'>
 				<img src='' alt='' />
         logo
