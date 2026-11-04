@@ -3,12 +3,14 @@ import Filter from "./Filter";
 
 const Countries = () => {
 	return (
-		<div>
+		<div className='px-15 py-10'>
 			<Filter />
 
-			{Array.from({ length: 20 }).map((_, i) => (
-				<CountryCard key={i} />
-			))}
+			<div className='grid grid-cols-4 gap-10 pt-10'>
+				{Array.from({ length: 20 }).map((_, i) => (
+					<CountryCard key={i} />
+				))}
+			</div>
 		</div>
 	);
 };

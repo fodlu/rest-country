@@ -1,9 +1,12 @@
-import React from "react";
+import { ArrowLeft } from "lucide-react";
 
-const Country = () => {
+const CountryDetail = () => {
 	return (
 		<div>
-			<button>Back</button>
+			<button type='button' className="">
+				{" "}
+				<ArrowLeft /> Back
+			</button>
 
 			<div className=''>
 				<div className=''>
@@ -58,4 +61,4 @@ const Country = () => {
 	);
 };
 
-export default Country;
+export default CountryDetail;
