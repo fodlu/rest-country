@@ -9,6 +9,7 @@ import Loader from "./components/Loader";
 const App = () => {
 	const [loading, setLoading] = useState(true);
 	const [data, setData] = useState([]);
+	const [light, setLight] = useState(false);
 
 	useEffect(() => {
 		setTimeout(() => {
@@ -17,17 +18,18 @@ const App = () => {
 		}, 750);
 	}, []);
 
-  if (loading) {
-    return <Loader />
-  }
+	if (loading) {
+		return <Loader />;
+	}
 
 	return (
-		<div className='bg-blue-950 h-screen overflow-y-scroll'>
-			<Header />
+		<div
+			className={`h-screen overflow-y-scroll ${light ? "bg-gray-50 " : "bg-blue-950"}`}>
+			<Header setLight={setLight} light={light} />
 			<main className=''>
 				<Routes>
-					<Route path='/' element={<Countries data={data} />} />
-					<Route path='/:name' element={<CountryDetail data={data} />} />
+					<Route path='/' element={<Countries data={data} light={light} />} />
+					<Route path='/:name' element={<CountryDetail data={data} light={light} />} />
 				</Routes>
 			</main>
 		</div>

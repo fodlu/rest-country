@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Loader from "./Loader";
 
-const CountryDetail = ({ data }) => {
+const CountryDetail = ({ data, light }) => {
 	const codeToName = (code) => {
 		const countryName = data.find((d) => d.alpha3Code === code);
 		return countryName;
@@ -30,24 +30,24 @@ const CountryDetail = ({ data }) => {
 		);
 	}
 	return (
-		<div className='p-5 md:p-10'>
+		<div className='p-5 md:p-15'>
 			<Link
 				to='/'
 				type='button'
-				className='bg-blue-900 flex items-center gap-1 px-5 py-1 text-white font-bold shadow-sm rounded-sm cursor-pointer w-fit'>
+				className={`flex items-center gap-1 px-5 py-1  font-bold shadow-sm rounded-sm cursor-pointer w-fit ${light ? "bg-white text-gray-950" : "bg-blue-900 text-white"}`}>
 				{" "}
 				<ArrowLeft size={17} /> Back
 			</Link>
 
 			<div className='flex flex-col md:flex-row mt-10 gap-15 text-[16px]'>
-				<div className='w-full h-100 md:w-300 border'>
-					<img src={country.flags.svg} alt='' />
+				<div className='w-full h-100 md:w-400 md:h-120 shadow-lg'>
+					<img src={country.flag || country.flags.svg || country.flags.png} alt='' className="w-full h-full object-cover" />
 				</div>
 
-				<div className='w-full'>
-					<p className='mb-5 font-bold text-2xl text-white'>{country.name}</p>
+				<div className='w-full flex flex-col justify-center'>
+					<p className={`mb-5 font-bold text-2xl ${light ? "text-gray-950" : "text-white"}`}>{country.name}</p>
 
-					<div className='details flex flex-col gap-10 md:flex-row justify-between mb-12'>
+					<div className={`flex flex-col gap-10 md:flex-row justify-between mb-12 ${light ? "light" : "details"}`}>
 						<div className='flex flex-col gap-1'>
 							<p className=''>
 								Native Name: <span className=''>{country.nativeName}</span>
@@ -91,13 +91,13 @@ const CountryDetail = ({ data }) => {
 						</div>
 					</div>
 
-					<div className='flex flex-col md:fle gap-4'>
-						<p className='text-white font-bold'>Border Countries: </p>
+					<div className='flex flex-col md:flex-row gap-4'>
+						<p className={`font-bold text-nowrap ${light ? "text-gray-950" : "text-white"}`}>Border Countries: </p>
 						<div className='flex gap-2 flex-wrap'>
 							{country.borders && country.borders.map((b, i) => (
 								<Link
 									to={`/${codeToName(b).name}`}
-									className='px-5 py-1 bg-blue-900 text-white font-semibold shadow-lg rounded-sm cursor-pointer'
+									className={`px-5 py-1 font-semibold shadow-lg rounded-sm cursor-pointer ${light ? "bg-white text-gray-950" : "bg-blue-900 text-white"}`}
 									key={i}>
 									{codeToName(b).name}
 								</Link>

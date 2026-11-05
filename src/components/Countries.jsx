@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import CountryCard from "./CountryCard";
 import Filter from "./Filter";
 
-const Countries = ({ data }) => {
+const Countries = ({ data, light }) => {
 	const [filter, setFilter] = useState("all");
 	const [search, setSearch] = useState("");
 
@@ -21,6 +21,7 @@ const Countries = ({ data }) => {
 		<div className='p-5 md:px-15 md:py-10'>
 			<Filter
 				data={data}
+				light={light}
 				setFilter={setFilter}
 				search={search}
 				setSearch={setSearch}
@@ -29,7 +30,7 @@ const Countries = ({ data }) => {
 			{/* <div className='countries grid grid-cols-4 gap-10 pt-10'> */}
 			<div className='countries gap-10 pt-10'>
 				{searchFiltered.map((country, i) => (
-					<CountryCard country={country} key={i} />
+					<CountryCard country={country} light={light} key={i} />
 				))}
 			</div>
 		</div>
