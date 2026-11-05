@@ -1,26 +1,29 @@
-const CountryCard = () => {
+import { Link } from "react-router-dom";
+
+const CountryCard = ({country}) => {
+
 	return (
-		<div className='border cursor-pointer rounded-lg shadow-sm shadow-gray-950 overflow-hidden'>
-			<div className='h-40 border bg-blue-900'>
-				<img src='' alt='' />
-        logo
+		<Link to={`/${country.name}`} className='bg-blue-900 cursor-pointer rounded-lg shadow-sm shadow-gray-950 overflow-hidden max-w-200'>
+			<div className='h-40 bg-blue-900'>
+				<img src={country.flags.svg} alt='flag' />
+
 			</div>
 			<div className='p-5 pb-10 bg-blue-900'>
-				<p className='text-white font-bold text-lg mb-5'>Germany</p>
+				<p className='text-white font-bold text-lg mb-5'>{country.name}</p>
 
 				<div className='details flex flex-col gap-1'>
 					<p className=''>
-						Poplation: <span className=''>12324234331</span>
+						Poplation: <span className=''>{Number(country.population).toLocaleString()}</span>
 					</p>
 					<p className=''>
-						Region: <span className=''>Americas</span>
+						Region: <span className=''>{country.region}</span>
 					</p>
 					<p className=''>
-						Capital: <span className=''>Washington DC</span>
+						Capital: <span className=''>{country.capital}</span>
 					</p>
 				</div>
 			</div>
-		</div>
+		</Link>
 	);
 };
 
