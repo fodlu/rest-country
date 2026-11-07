@@ -19,7 +19,14 @@ const App = () => {
 	}, []);
 
 	if (loading) {
-		return <Loader />;
+		return (
+			<div
+				className={`w-full h-screen flex items-center justify-center ${light ? "bg-red-400" : "bg-blue-950"}`}>
+				<div
+					className={`border-4 border-t-0 border-r-0 w-50 h-50 rounded-full animate-spin ${light ? "border-red-950" : "border-white"}`}
+				/>
+			</div>
+		);
 	}
 
 	return (
@@ -29,7 +36,10 @@ const App = () => {
 			<main className=''>
 				<Routes>
 					<Route path='/' element={<Countries data={data} light={light} />} />
-					<Route path='/:name' element={<CountryDetail data={data} light={light} />} />
+					<Route
+						path='/:name'
+						element={<CountryDetail data={data} light={light} />}
+					/>
 				</Routes>
 			</main>
 		</div>

@@ -15,7 +15,7 @@ const Filter = ({ data, setFilter, search, setSearch, light }) => {
 				<div
 					className={`relative rounded-sm h-15 shadow-md w-full md:w-85 ${light ? "bg-white" : "bg-blue-900"}`}>
 					<Search
-						className={`pointer-events-none absolute top-4 left-6 ${light ? "text-gray-400" : "text-gray-50"}`}
+						className={`pointer-events-none absolute top-4 left-6 ${light ? "text-gray-950" : "text-gray-50"}`}
 					/>
 					<input
 						id='search-for-a-country'
@@ -32,6 +32,8 @@ const Filter = ({ data, setFilter, search, setSearch, light }) => {
 				onChange={(e) => setFilter(e.target.value)}
 				className={` p-4 font-semibold rounded-md shadow-sm w-fit ${light ? "bg-white text-gray-950" : "bg-blue-900 text-white"}`}
 				name='regions'
+				aria-describedby="sort-countries-by-region"
+				aria-live="polite"
 				id='regions'>
 				<option value='all'>Filter by Region</option>
 				{regions.map((reg) => (
