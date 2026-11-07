@@ -30,8 +30,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: https://github.com/fodlu/rest-country
+- Live Site URL: https://rest-country-eosin-psi.vercel.app/
 
 ### Built with
 
@@ -41,8 +41,9 @@ Users should be able to:
 - CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
+- TailwindCSS
 
 ## Author
 
 - Website - https://my-portfolio-gilt-tau-14.vercel.app/
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
+- Frontend Mentor - [@fodlu](https://www.frontendmentor.io/profile/fodlu)
